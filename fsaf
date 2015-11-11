@@ -1,0 +1,26 @@
++--------+--------------------------------+-------------------------------------------------------+------------------+------------------------------------------------------------+------------+
+| Domain | Method                         | URI                                                   | Name             | Action                                                     | Middleware |
++--------+--------------------------------+-------------------------------------------------------+------------------+------------------------------------------------------------+------------+
+|        | GET|HEAD                       | /                                                     |                  | Closure                                                    |            |
+|        | GET|HEAD                       | about                                                 |                  | App\Http\Controllers\PagesController@about                 |            |
+|        | POST                           | articles                                              | articles.store   | App\Http\Controllers\ArticlesController@store              |            |
+|        | GET|HEAD                       | articles                                              | articles.index   | App\Http\Controllers\ArticlesController@index              |            |
+|        | GET|HEAD                       | articles/create                                       | articles.create  | App\Http\Controllers\ArticlesController@create             |            |
+|        | PATCH                          | articles/{articles}                                   |                  | App\Http\Controllers\ArticlesController@update             |            |
+|        | PUT                            | articles/{articles}                                   | articles.update  | App\Http\Controllers\ArticlesController@update             |            |
+|        | DELETE                         | articles/{articles}                                   | articles.destroy | App\Http\Controllers\ArticlesController@destroy            |            |
+|        | GET|HEAD                       | articles/{articles}                                   | articles.show    | App\Http\Controllers\ArticlesController@show               |            |
+|        | GET|HEAD                       | articles/{articles}/edit                              | articles.edit    | App\Http\Controllers\ArticlesController@edit               |            |
+|        | POST                           | auth/login/{one?}/{two?}/{three?}/{four?}/{five?}     |                  | App\Http\Controllers\Auth\AuthController@postLogin         | guest      |
+|        | GET|HEAD                       | auth/login/{one?}/{two?}/{three?}/{four?}/{five?}     |                  | App\Http\Controllers\Auth\AuthController@getLogin          | guest      |
+|        | GET|HEAD                       | auth/logout/{one?}/{two?}/{three?}/{four?}/{five?}    |                  | App\Http\Controllers\Auth\AuthController@getLogout         |            |
+|        | POST                           | auth/register/{one?}/{two?}/{three?}/{four?}/{five?}  |                  | App\Http\Controllers\Auth\AuthController@postRegister      | guest      |
+|        | GET|HEAD                       | auth/register/{one?}/{two?}/{three?}/{four?}/{five?}  |                  | App\Http\Controllers\Auth\AuthController@getRegister       | guest      |
+|        | GET|HEAD|POST|PUT|PATCH|DELETE | auth/{_missing}                                       |                  | App\Http\Controllers\Auth\AuthController@missingMethod     | guest      |
+|        | GET|HEAD                       | contact                                               |                  | App\Http\Controllers\PagesController@contact               |            |
+|        | POST                           | password/email/{one?}/{two?}/{three?}/{four?}/{five?} |                  | App\Http\Controllers\Auth\PasswordController@postEmail     | guest      |
+|        | GET|HEAD                       | password/email/{one?}/{two?}/{three?}/{four?}/{five?} |                  | App\Http\Controllers\Auth\PasswordController@getEmail      | guest      |
+|        | POST                           | password/reset/{one?}/{two?}/{three?}/{four?}/{five?} |                  | App\Http\Controllers\Auth\PasswordController@postReset     | guest      |
+|        | GET|HEAD                       | password/reset/{one?}/{two?}/{three?}/{four?}/{five?} |                  | App\Http\Controllers\Auth\PasswordController@getReset      | guest      |
+|        | GET|HEAD|POST|PUT|PATCH|DELETE | password/{_missing}                                   |                  | App\Http\Controllers\Auth\PasswordController@missingMethod | guest      |
++--------+--------------------------------+-------------------------------------------------------+------------------+------------------------------------------------------------+------------+

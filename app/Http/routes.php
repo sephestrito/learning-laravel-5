@@ -15,6 +15,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/**
+ *  Middlware route level
+ *  Route::get('about',['middleware' => 'auth', 'uses' => 'PagesController@about']);
+ */
+
+/**
+ *  Middlware route level //function
+ *  Route::get('about',['middleware' => 'auth',function () {
+ *  	return 'this is a test';
+ *  }]);
+ */
 
 Route::get('about','PagesController@about');
 Route::get('contact','PagesController@contact');
@@ -27,4 +38,9 @@ Route::post('articles','ArticlesController@store');
 Route::get('articles/{id}/edit','ArticlesController@edit');
 */
 
-Route:resource('articles','ArticlesController');
+Route::resource('articles','ArticlesController');
+
+Route::controllers([
+	'auth' => 'Auth\AuthController',
+	'password' => 'Auth\PasswordController'
+]);
