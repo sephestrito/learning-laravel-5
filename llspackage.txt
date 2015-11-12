@@ -1,0 +1,7 @@
+https://github.com/chiraggude/awesome-laravel#popular-packages
+
+https://www.reddit.com/r/laravel/comments/3oews0/what_are_your_top_5_most_interesting_packages_for/
+https://www.reddit.com/r/laravel/comments/3q9ow0/what_are_some_must_have_packages/
+
+
+https://github.com/jp7internet/laravel-apz/wiki

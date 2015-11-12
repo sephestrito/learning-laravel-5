@@ -29,5 +29,14 @@ class Kernel extends HttpKernel
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        
+
+        /**
+         * testing middleware route for redirectifnotamanager from users //jce
+         *
+         * 'manager' => \App\Http\Middleware\RedirectIfNotAManager::class,
+         * 
+         */
+        
     ];
 }

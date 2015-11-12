@@ -27,6 +27,19 @@ class RouteServiceProvider extends ServiceProvider
         //
 
         parent::boot($router);
+
+        /*Route::model*/
+
+        /**
+         * Route model binding altering default logic
+         * $router->bind('articles',function($id){
+         *     return \App\Article::published()->findOrFail($id);
+         * });
+         */
+        /*Using wildcard*/
+        $router->model('articles','App\Article');
+
+
     }
 
     /**

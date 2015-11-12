@@ -52,9 +52,10 @@ class ArticlesController extends Controller
 
     }
     
-    public function show($id)
+    /*public function show($id)*/
+    public function show(Article $article)
     {
-    	$article = Article::findOrFail($id);
+    	/*$article = Article::findOrFail($id);*/
 
         /*dd($article->created_at->year);
         dd($article->created_at->month);
@@ -94,24 +95,30 @@ class ArticlesController extends Controller
                 'body' => 'required',
                 'published_at' => 'required|date'
             ]);*/
-        $article = new Article($request->all());
-        Auth::user()->articles()->save($article);
-        
-
         /*Article::create($request->all());*/
 
+        /**
+         * This
+         * $article = new Article($request->all());
+         * Auth::user()->articles()->save($article);
+         *
+         * is same as this below //jce
+         * Auth::user()->articles()->create($request->all());
+         */
+    
+        Auth::user()->articles()->create($request->all());
+
+        \Session::flash('flash_message','Your Article has been created');
         return redirect('articles');
     }
 
-    public function edit($id)
+    public function edit(Article $article)
     {
-        $article = Article::findOrFail($id);
         return view('articles.edit',compact('article'));
     }
 
-    public function update($id, ArticleRequest $request)
+    public function update(Article $article, ArticleRequest $request)
     {
-        $article = Article::findOrFail($id);
         $article->update($request->all());
 
         return redirect('articles');
