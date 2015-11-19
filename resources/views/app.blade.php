@@ -5,26 +5,28 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/libs/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/libs/select2.min.css">
+	<link rel="stylesheet" href="/css/app.css">
+
+
 </head>
 
 <body>
+	@include('partials.nav')
+	
 	<div class="container">
 
-		@if (Session::has('flash_message'))
-			<div class="alert-success alert">
-					@if (Session::has('flash_message_important'))
-						<button type="button" class="close" data-dismiss="alert" aria-hidde="true">&times;</button>
-					@endif
-					{{ Session::get('flash_message') }}
-			</div>
-		@endif
+		@include('flash::message')
 
 		@yield('content')
 	</div>
 
-	<script src="//code.jquery.com/jquery.js"></script>
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script src="/js/libs/jquery.js"></script>
+	<script src="/js/libs/select2.min.js"></script>
+	<script src="/js/libs/bootstrap.min.js"></script>
+	<script src="/js/app.js"></script>
+
 	@yield('footer')
 
 </body>

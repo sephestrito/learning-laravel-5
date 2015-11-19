@@ -33,8 +33,40 @@ class Article extends Model
     	$this->attributes['published_at'] = Carbon::parse($date);
     }
 
+
+    /**
+     * get the published at attribute
+     * @param  Date Object $date 
+     * @return ---       Carbon instance of a date;
+     */
+    public function getPublishedAtAttribute($date)
+    {
+        /*return new Carbon($date);*/
+        return Carbon::parse($date)->format('Y-m-d');
+
+    }
+
     public function user()
     {
         return $this->belongsTo('App\User');
+    }
+
+    /**
+     * Get the tags associated with the given article.
+     * @return Eloquent\Relations\BelongsToMany
+     */
+    public function tags()
+    {
+        return $this->belongsToMany('App\Tag')->withTimestamps();
+    }
+
+
+    /**
+     * Get a list of tag ids associated with this article.
+     * @return [array] [description]
+     */
+    public function getTagListAttribute()
+    {
+        return $this->tags->lists('id')->all();
     }
 }
