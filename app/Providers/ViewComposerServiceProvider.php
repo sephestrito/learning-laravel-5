@@ -40,7 +40,10 @@ class ViewComposerServiceProvider extends ServiceProvider
          * });
          */
         
-        view()->composer('partials.nav','App\Http\Composers\NavigationComposer');
+        /*
+        *Commented JCE 1/30/2016
+        *
+        *view()->composer('partials.nav','App\Http\Composers\NavigationComposer');*/
         
         
         

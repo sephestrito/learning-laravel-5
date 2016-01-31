@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Article;
-use App\Http\Requests;
-use Illuminate\Http\Request;
-use App\Http\Requests\ArticleRequest;
 use App\Http\Controllers\Controller;
-use Flash;
-use Carbon\Carbon;
-use Auth;
+use App\Http\Requests;
+use App\Http\Requests\ArticleRequest;
 use App\Tag;
+use Auth;
+use Carbon\Carbon;
+use Flash;
+use Illuminate\Http\Request;
 
 class ArticlesController extends Controller
 {

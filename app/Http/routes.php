@@ -30,7 +30,9 @@ Route::get('/', function () {
 
 Route::get('about','PagesController@about');
 Route::get('contact','PagesController@contact');
-
+Route::get('dashboard','DashboardController@index');
+/*Route::get('admin/rates','AdministratorController@rates');*/
+Route::get('admin/rates','AdministratorController@rates');
 /*
 Route::get('articles','ArticlesController@index');
 Route::get('articles/create','ArticlesController@create');
@@ -40,8 +42,12 @@ Route::get('articles/{id}/edit','ArticlesController@edit');
 */
 
 Route::resource('articles','ArticlesController');
+Route::resource('customers','CustomersController');
+
+Route::resource('motherboards','MotherboardsController');
 
 Route::get('tags/{tags}', 'TagsController@show');
+
 
 
 Route::controllers([

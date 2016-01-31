@@ -48,6 +48,11 @@ class RouteServiceProvider extends ServiceProvider
             return \App\Tag::where('name',$name)->firstOrFail();
         });
 
+        $router->bind('motherboards', function($name){
+            return \App\Motherboard::where('name',$name)->firstOrFail();
+        });
+
+
     }
 
     /**

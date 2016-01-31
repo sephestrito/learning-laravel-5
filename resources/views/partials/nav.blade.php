@@ -7,7 +7,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="/">Blog</a>
+			<a class="navbar-brand" href="/dashboard">Dashboard</a>
 		</div>
 		<div id="navbar" class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
@@ -20,9 +20,11 @@
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
+			{{-- Commentted | JCE | For Showing Latest Article;
 				<li>
 					{!! link_to_action('ArticlesController@show', $latest->title, [$latest->id]) !!}
 				</li>
+			--}}
 
 			</ul>
 		</div>
