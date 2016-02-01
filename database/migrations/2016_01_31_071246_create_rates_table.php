@@ -17,6 +17,7 @@ class CreateRatesTable extends Migration
             $table->string('rate');
             $table->smallInteger('member_ind');
             $table->decimal('price',7,2);
+            $table->timestamps();
         });
     }
 

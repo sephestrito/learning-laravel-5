@@ -138,7 +138,6 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 		Illuminate\Html\HtmlServiceProvider::class,
         Bestmomo\Scafold\ScafoldServiceProvider::class,
-        Caffeinated\Flash\FlashServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -203,7 +202,6 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
 		'Form'      => Illuminate\Html\FormFacade::class,
         'Html'      => Illuminate\Html\HtmlFacade::class,
-        'Flash'     => Caffeinated\Flash\Facades\Flash::class,
 
     ],
 

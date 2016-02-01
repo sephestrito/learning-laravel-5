@@ -32,7 +32,9 @@ Route::get('about','PagesController@about');
 Route::get('contact','PagesController@contact');
 Route::get('dashboard','DashboardController@index');
 /*Route::get('admin/rates','AdministratorController@rates');*/
-Route::get('admin/rates','AdministratorController@rates');
+/*Route::get('admin/rates','AdministratorController@rates');
+Route::get('admin/rates/edit/{id}','AdministratorController@editRates');
+Route::get('admin/rate/update','AdministratorController@updateRates');*/
 /*
 Route::get('articles','ArticlesController@index');
 Route::get('articles/create','ArticlesController@create');
@@ -42,7 +44,10 @@ Route::get('articles/{id}/edit','ArticlesController@edit');
 */
 
 Route::resource('articles','ArticlesController');
+Route::get('customers/listing','CustomersController@listing');
 Route::resource('customers','CustomersController');
+
+Route::resource('rates','RatesController');
 
 Route::resource('motherboards','MotherboardsController');
 

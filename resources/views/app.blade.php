@@ -17,7 +17,7 @@
 	
 	<div class="container">
 
-		@include('flash::message')
+		
 
 		<div class="row">
 		  <div class="col-md-4">
@@ -28,7 +28,7 @@
 						<li><a href="/customers/create">Register Customer</a></li>
 						<li><a href="/customers/membership">Membership</a></li>
 						<li><a href="/customers/gymaccess">Gym Access Payment</a></li>
-						<li><a href="/customers/customerslist">Customers List</a></li>
+						<li><a href="/customers/list">Customers List</a></li>
 					</ul>
 				</li>
 				<li>Administration</li>
@@ -36,7 +36,7 @@
 					<ul>
 						<li>Generate Reports</li>
 						<li>Users</li>
-						<li><a href="/admin/rates">Rates</a></li>
+						<li><a href="/rates">Rates</a></li>
 					</ul>
 				</li>
 			</ul>

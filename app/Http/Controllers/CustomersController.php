@@ -19,7 +19,7 @@ class CustomersController extends Controller
      */
     public function index()
     {
-        //
+       
     }
 
     /**
@@ -43,6 +43,12 @@ class CustomersController extends Controller
 
         Customer::create($request->all());
         return redirect('dashboard');
+    }
+
+    public function listing()
+    {
+         $customers = Customer::all();
+        return view('customers.listing', ['customers' => $customers]);
     }
 
     /**

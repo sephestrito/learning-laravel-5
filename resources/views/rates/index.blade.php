@@ -17,7 +17,7 @@
 		<tr>
 			<td>{{ $rate->rate }}</td>
 			<td style="text-align:right">{{ number_format($rate->price, 2) }}</td>
-			<td> <a href="{{ url('/rates', $rate->id) }}">Edit</a> </td>
+			<td> <a href="{{ action('RatesController@edit', $rate->id) }}">Edit</a> </td>
 		</tr>
 	@endforeach
 	</tbody>
@@ -37,7 +37,7 @@
 		<tr>
 			<td>{{ $rate->rate }}</td>
 			<td style="text-align:right">{{ number_format($rate->price, 2) }}</td>
-			<td> <a href="{{ url('/rates', $rate->id) }}">Edit</a> </td>
+			<td> <a href="{{ action('RatesController@edit', $rate->id) }}">Edit</a> </td>
 		</tr>
 	@endforeach
 	</tbody>
