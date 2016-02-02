@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Customer;
+use App\Membership;
+use DB;
 use Auth;
 use Carbon\Carbon;
 use App\Http\Requests;
@@ -41,6 +43,7 @@ class CustomersController extends Controller
     public function store(Request $request)
     {
 
+
         Customer::create($request->all());
         return redirect('dashboard');
     }
@@ -51,15 +54,44 @@ class CustomersController extends Controller
         return view('customers.listing', ['customers' => $customers]);
     }
 
+    public function membership($id)
+    {
+        $customer = \App\Customer::where('id',$id)->firstOrFail();
+        $activationDate = Carbon::today()->format('F d\\, Y');  
+        $expirationDate = Carbon::today()->addYear()->subDay()->format('F d\\, Y');  
+
+        $rate = \App\Rate::where('member_ind',2)->firstOrFail();
+        $price = $rate->price;
+        return view('customers.membership', compact('customer','activationDate','expirationDate', 'price'));
+    }
+
+    public function membership_update(Request $request)
+    {
+        /*dd($request->id);*/
+        $customer = customer::find($request->id);
+        $customer->membership_ind = 1;
+        $customer->save();
+
+        $membership = new Membership();
+        $membership->customer_id = $request->id;
+        $membership->activation_date = Carbon::today();
+        $membership->expiration_date = Carbon::today()->addYear()->subDay();
+        $membership->save();
+
+
+    
+        return redirect('dashboard');
+    }
+
     /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Customer $customer)
     {
-        //
+         dd($customer);
     }
 
     /**

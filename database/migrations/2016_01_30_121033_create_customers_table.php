@@ -19,6 +19,8 @@ class CreateCustomersTable extends Migration
             $table->string('contact_number');
             $table->string('emergency_name');
             $table->string('emergency_contact_number');
+            $table->integer('membership_ind')->unsigned();
+            $table->integer('gymaccess_ind')->unsigned();
             $table->timestamps();
         });
     }

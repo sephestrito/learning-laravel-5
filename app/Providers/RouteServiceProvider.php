@@ -47,6 +47,10 @@ class RouteServiceProvider extends ServiceProvider
             return \App\Rate::where('id',$id)->firstOrFail();
         });
 
+        $router->bind('customers',function($id){
+            return \App\Customer::where('id',$id)->firstOrFail();
+        });
+
         $router->bind('tags', function($name){
             return \App\Tag::where('name',$name)->firstOrFail();
         });

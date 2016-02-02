@@ -28,7 +28,7 @@
 						<li><a href="/customers/create">Register Customer</a></li>
 						<li><a href="/customers/membership">Membership</a></li>
 						<li><a href="/customers/gymaccess">Gym Access Payment</a></li>
-						<li><a href="/customers/list">Customers List</a></li>
+						<li><a href="/customers/listing">Customers List</a></li>
 					</ul>
 				</li>
 				<li>Administration</li>

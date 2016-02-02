@@ -43,6 +43,7 @@ class User extends Model implements AuthenticatableContract,
     }
 
 
+
     /**
      * isATeamManager for Testing Middleware on user function
      * @return boolean [description]
