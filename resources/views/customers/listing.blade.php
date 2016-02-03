@@ -17,7 +17,7 @@
 		<tr>
 			<td>{{ $customer->name }}</td>
 			<td>{{ $customer->contact_number }}</td>
-			<td> <a href="{{ action('CustomersController@membership', $customer->id) }}">Activate</a> </td>
+			<td> <a href="{{ action('CustomersController@gymaccess', $customer->id) }}">Activate</a> </td>
 		</tr>
 	@endforeach
 	</tbody>

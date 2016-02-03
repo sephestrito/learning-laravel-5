@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Customer;
 use App\Membership;
+use App\Rate;
 use DB;
 use Auth;
 use Carbon\Carbon;
@@ -76,11 +77,19 @@ class CustomersController extends Controller
         $membership->customer_id = $request->id;
         $membership->activation_date = Carbon::today();
         $membership->expiration_date = Carbon::today()->addYear()->subDay();
-        $membership->save();
-
-
-    
+        $membership->save();    
         return redirect('dashboard');
+    }
+
+    public function gymaccess($id)
+    {
+        $customer = \App\Customer::where('id',$id)->firstOrFail();
+        /*$activationDate = Carbon::today();*/
+        $activationDate = Carbon::today()->format('F d\\, Y');  
+
+        /*$rates = \App\Rate::where('member_ind',$customer->member_ind)->firstOrFail();*/
+        $rates = Rate::where('member_ind',$customer->membership_ind)->where('rate','!=','Per Session')->lists('rate','id','price');
+        return view('customers.gymaccess',compact('customer','rates','activationDate'));
     }
 
     /**
