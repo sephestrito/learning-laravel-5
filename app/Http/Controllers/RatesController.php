@@ -44,15 +44,29 @@ class RatesController extends Controller
 
         $rate_id = $request->rate_id;
         $rate = Rate::where('id', '=', $rate_id)->firstOrFail();
-        $price = $rate->price;
-        if($rate_id == 2)
+        $price = number_format( $rate->price, 2);
+
+        if($rate->period == 'day')
+        {
+            $expirationDate = Carbon::today()->addDays($rate->period_count)->format('F d\\, Y');  
+        }
+        else if($rate->period == 'month')
+        {
+            $expirationDate = Carbon::today()->addMonths($rate->period_count)->subDay()->format('F d\\, Y');  
+        }
+        else if($rate->period == 'year')
+        {
+            $expirationDate = Carbon::today()->addYears($rate->period_count)->subDay()->format('F d\\, Y');  
+        }
+
+        /*if($rate_id == 2)
         {
             $expirationDate = Carbon::today()->addMonth()->format('F d\\, Y');      
         }
         else if($rate_id == 6)
         {
             $expirationDate = Carbon::today()->addYear()->subDay()->format('F d\\, Y');  
-        }
+        }*/
         
         return Response::json(['price' => $price, 'expirationDate' => $expirationDate]);
     }

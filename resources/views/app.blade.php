@@ -26,8 +26,10 @@
 				<li>
 					<ul>
 						<li><a href="/customers/create">Register Customer</a></li>
-						<li><a href="/customers/membership">Membership</a></li>
-						<li><a href="/customers/gymaccess">Gym Access Payment</a></li>
+						{{-- <li><a href="/customers/membership">Membership</a></li>
+						<li><a href="/customers/gymaccess">Gym Access Payment</a></li> --}}
+						<li>Membership</li>
+						<li>Gym Access Payment</li>
 						<li><a href="/customers/listing">Customers List</a></li>
 					</ul>
 				</li>
@@ -37,6 +39,14 @@
 						<li>Generate Reports</li>
 						<li>Users</li>
 						<li><a href="/rates">Rates</a></li>
+					</ul>
+				</li>
+				<li>Logins</li>
+				<li>
+					<ul>
+						<li><a href="/auth/login">Login</a></li>
+						<li><a href="/auth/register">Register</a></li>
+						<li><a href="/auth/logout">Logout</a></li>
 					</ul>
 				</li>
 			</ul>
@@ -55,7 +65,11 @@
 	<script src="/js/app.js"></script>
 
 	@yield('footer')
-
+	<script>
+		$( document ).ready(function() {
+		    $('.container').show();
+		});
+	</script>
 </body>
 
 </html>

@@ -85,12 +85,12 @@ class CustomersController extends Controller
     {
         $customer = \App\Customer::where('id',$id)->firstOrFail();
         /*$activationDate = Carbon::today();*/
-        $activationDate = Carbon::today()->format('F d\\, Y');  
-
-        /*$rates = \App\Rate::where('member_ind',$customer->member_ind)->firstOrFail();*/
-        $rates = Rate::where('member_ind',$customer->membership_ind)->where('rate','!=','Per Session')->lists('rate','id','price');
+        $activationDate = Carbon::today()->format('F d\\, Y');
+        $rates = Rate::where('member_ind',$customer->membership_ind)->where('per_session_ind','!=',1)->lists('rate','id','price');
         return view('customers.gymaccess',compact('customer','rates','activationDate'));
     }
+
+
 
     /**
      * Display the specified resource.

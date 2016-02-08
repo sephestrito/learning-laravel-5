@@ -38,26 +38,19 @@
 
 @section('footer')
 	<script>
-		$('#rates').on('change',function(e){
-			console.log(e);
-			var rate_id = e.target.value;
+		$( document ).ready(function() {
+		    ajaxCall_rates($( "#rates" ).val());
+		});
+		$( "#rates" ).change(function() {
+		  ajaxCall_rates($(this).val());
+		});
 
-			//ajax
+		function ajaxCall_rates(rate_id){
 			$.get('/ajax-rateInfo?rate_id=' + rate_id, function(data){
-				
-				/*$('#price').text(data[0].price);
-
-
-				$('#test').text(data[0].expirationDate);
-*/	
 				$('#price').text(data.price);
 				$('#expDate').text(data.expirationDate);
-				/*$.each(data, function(index,rateObj){
-					$('#price').text(rateObj.price);
-					$('#test').text(rateObj.expirationDate);
-				});*/
 			});
-		});
+		}
 
 	</script>
 
