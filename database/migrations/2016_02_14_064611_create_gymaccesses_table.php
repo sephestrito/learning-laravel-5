@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMembershipsTable extends Migration
+class CreateGymaccessesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CreateMembershipsTable extends Migration
      */
     public function up()
     {
-        Schema::create('memberships', function (Blueprint $table) {
+        Schema::create('gymaccesses', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('customer_id')->unsigned();
             $table->timestamp('activation_date');
@@ -34,6 +34,6 @@ class CreateMembershipsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('memberships');
+        Schema::drop('gymaccesses');
     }
 }

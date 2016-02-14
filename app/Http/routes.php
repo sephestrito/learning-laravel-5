@@ -45,10 +45,12 @@ Route::get('articles/{id}/edit','ArticlesController@edit');
 
 Route::resource('articles','ArticlesController');
 Route::get('customers/listing','CustomersController@listing');
+Route::get('customers/membership_listing','CustomersController@membership_listing');
+Route::get('customers/gymaccess_listing','CustomersController@gymaccess_listing');
 Route::get('customers/{id}/membership','CustomersController@membership');
 Route::patch('customers/{id}/membership_update','CustomersController@membership_update');
 Route::get('customers/{id}/gymaccess','CustomersController@gymaccess');
-Route::get('customers/{id}/gymaccess_update','CustomersController@gymaccess_update');
+Route::patch('customers/{id}/gymaccess_update','CustomersController@gymaccess_update');
 Route::resource('customers','CustomersController');
 
 

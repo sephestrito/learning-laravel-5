@@ -28,8 +28,8 @@
 						<li><a href="/customers/create">Register Customer</a></li>
 						{{-- <li><a href="/customers/membership">Membership</a></li>
 						<li><a href="/customers/gymaccess">Gym Access Payment</a></li> --}}
-						<li>Membership</li>
-						<li>Gym Access Payment</li>
+						<li><a href="/customers/membership_listing">Membership</a></li>
+						<li><a href="/customers/gymaccess_listing">Gym Access</a></li>
 						<li><a href="/customers/listing">Customers List</a></li>
 					</ul>
 				</li>

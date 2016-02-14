@@ -4,11 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Membership extends Model
+class Gymaccess extends Model
 {
     protected $fillable = [
     	'customer_id',
-        'active_ind',
+    	'active_ind',
     	'activation_date',
         'expiration_date' //all;
     ];

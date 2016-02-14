@@ -4,7 +4,7 @@
 		<td style="width: 15%">Customer No. :</td>
 		<td style="width: 30%">{{ $customer->id }}</td>
 		<td style="width: 15%">Gym Access :</td>
-		<td style="width: 30%">{!! Form::select('gymaccess[]', $rates, null, ['id'=>'gymaccess','class' => 'form-control','id'=> 'rates']) !!}</td>
+		<td style="width: 30%">{!! Form::select('gymaccess', $rates, null, ['id'=>'gymaccess','class' => 'form-control','id'=> 'rates']) !!}</td>
 	</tr>
 	<tr>
 		<td>Name :</td>

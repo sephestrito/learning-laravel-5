@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Customer;
 use App\Membership;
+use App\Gymaccess;
 use App\Rate;
 use DB;
 use Auth;
@@ -55,6 +56,18 @@ class CustomersController extends Controller
         return view('customers.listing', ['customers' => $customers]);
     }
 
+    public function membership_listing()
+    {
+        $customers = Customer::members()->get();
+        return view('customers.listing',['customers'=> $customers]);
+    }
+
+    public function gymaccess_listing()
+    {
+        $customers = Customer::withGymAccess()->get();
+        return view('customers.listing',['customers'=> $customers]);
+    }
+
     public function membership($id)
     {
         $customer = \App\Customer::where('id',$id)->firstOrFail();
@@ -77,6 +90,7 @@ class CustomersController extends Controller
         $membership->customer_id = $request->id;
         $membership->activation_date = Carbon::today();
         $membership->expiration_date = Carbon::today()->addYear()->subDay();
+        $membership->active_ind = 1;
         $membership->save();    
         return redirect('dashboard');
     }
@@ -88,6 +102,37 @@ class CustomersController extends Controller
         $activationDate = Carbon::today()->format('F d\\, Y');
         $rates = Rate::where('member_ind',$customer->membership_ind)->where('per_session_ind','!=',1)->lists('rate','id','price');
         return view('customers.gymaccess',compact('customer','rates','activationDate'));
+    }
+
+    public function gymaccess_update(Request $request)
+    {
+        $customer = customer::find($request->id);
+        $customer->gymaccess_ind = 1;
+        $customer->save();
+
+        $gymaccess = new gymaccess();
+        $gymaccess->customer_id = $request->id;
+        $gymaccess->activation_date = Carbon::today();
+        
+        $rate_id = $request->gymaccess;
+        $rate = Rate::where('id', '=', $rate_id)->firstOrFail();
+        /*$price = number_format( $rate->price, 2);*/
+
+        if($rate->period == 'day')
+        {
+            $gymaccess->expiration_date = Carbon::today()->addDays($rate->period_count);  
+        }
+        else if($rate->period == 'month')
+        {
+            $gymaccess->expiration_date = Carbon::today()->addMonths($rate->period_count)->subDay();  
+        }
+        else if($rate->period == 'year')
+        {
+            $gymaccess->expiration_date = Carbon::today()->addYears($rate->period_count)->subDay();  
+        }
+        $gymaccess->active_ind = 1;
+        $gymaccess->save();    
+        return redirect('dashboard');
     }
 
 

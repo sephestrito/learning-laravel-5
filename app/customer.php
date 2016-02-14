@@ -16,6 +16,15 @@ class customer extends Model
     	'gymaccess_ind'
     ];
 
+    public function scopeMembers($query)
+    {
+        $query->where('membership_ind', '=', 0);
+    }
+
+    public function scopeWithGymAccess($query)
+    {
+        $query->where('gymaccess_ind', '=', 0);
+    }
 
     public function memberships()
     {
